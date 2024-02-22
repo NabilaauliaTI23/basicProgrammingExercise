@@ -15,3 +15,7 @@ Aldila is here
 Name: Enjeli
 Nim: 20230040058
 prodi:Informatics Engineering
+# basicProgrammingExercise
+Name: Rizki Maulana
+Nim: 20230040035
+prodi:Informatics Engineering
