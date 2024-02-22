@@ -11,3 +11,7 @@ Name: Meutya Syahra
 Nim: 20230040072
 prodi:Informatics Engineering
 Aldila is here
+# basicProgrammingExercise
+Name: Enjeli
+Nim: 20230040058
+prodi:Informatics Engineering
