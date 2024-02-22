@@ -10,3 +10,4 @@ prodi:Informatics Engineering
 Name: Meutya Syahra
 Nim: 20230040072
 prodi:Informatics Engineering
+Aldila is here
