@@ -6,3 +6,7 @@ prodi:Informatics Engineering
 Name: Wildan Fadillah
 Nim: 20230040049
 prodi:Informatics Engineering
+# basicProgrammingExercise
+Name: Meutya Syahra
+Nim: 20230040072
+prodi:Informatics Engineering
