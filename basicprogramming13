@@ -1,0 +1,111 @@
+MAIN KODE :
+
+import sys
+from bank_system import create_account, deposit_money, withdraw_money, check_balance
+
+accounts = {}
+
+def main():
+    while True:
+        print("\n=== Sistem Perbankan ===")
+        print("1. Create Account")
+        print("2. Deposit Money")
+        print("3. Withdraw Money")
+        print("4. Check Balance")
+        print("5. Exit")
+
+        choice = input("Choice menu (1-5): ")
+
+        if choice == '1':
+            print()
+            create_account(accounts)
+        elif choice == '2':
+            print()
+            deposit_money(accounts)
+        elif choice == '3':
+            print()
+            withdraw_money(accounts)
+        elif choice == '4':
+            print()
+            check_balance(accounts)
+        elif choice == '5':
+            print()
+            print("Thank you and see you letter:v")
+            sys.exit()
+        else:
+            print()
+            print("Invalid selection. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
+    SYSTEM KODE :
+
+    class BankAccount:
+    def __init__(self, account_number, owner, balance=0):
+        self.account_number = account_number
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount <= 0:
+            raise ValueError("Deposit amount must be more than zero")
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            raise ValueError("Withdrawal amount must be more than zero")
+        if amount > self.balance:
+            raise ValueError("Insufficient balance")
+        self.balance -= amount
+
+    def get_balance(self):
+        return self.balance
+
+def format_currency(amount):
+    return f"Rp. {amount:,.2f}"
+
+def create_account(accounts):
+    account_number = input("Enter your account number: ")
+    owner = input("Enter your name: ")
+    if account_number in accounts:
+        print("Account already exists.")
+    else:
+        accounts[account_number] = BankAccount(account_number, owner)
+        print()
+        print("Account successfully created.")
+
+def deposit_money(accounts):
+    account_number = input("Enter account number: ")
+    if account_number not in accounts:
+        print("Account number not found.")
+        return
+    amount = float(input("Enter deposit amount: "))
+    try:
+        accounts[account_number].deposit(amount)
+        print()
+        print(f"Deposit successful. New balance: {format_currency(accounts[account_number].get_balance())}")
+    except ValueError as e:
+        print(f"Error: {e}")
+
+def withdraw_money(accounts):
+    account_number = input("Enter account number: ")
+    if account_number not in accounts:
+        print("Account number not found.")
+        return
+    amount = float(input("Enter withdrawal amount: "))
+    try:
+        accounts[account_number].withdraw(amount)
+        print()
+        print(f"Withdrawal successful. New balance: {format_currency(accounts[account_number].get_balance())}")
+    except ValueError as e:
+        print(f"Error: {e}")
+
+def check_balance(accounts):
+    account_number = input("Enter account number: ")
+    if account_number not in accounts:
+        print("Account number not found.")
+        return
+    balance = accounts[account_number].get_balance()
+    print()
+    print(f"Your balance: {format_currency(balance)}")
